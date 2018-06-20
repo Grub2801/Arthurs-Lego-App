@@ -5,7 +5,7 @@
   </p>
   <p>
     <%= form.label :date %><br>
-    <%= form.date_field :born_on %>
+    <%= form.date_field :date %>
   </p>
   <p>
     <%= form.label :description %><br>
@@ -16,3 +16,5 @@
     <%= form.submit %>
   </p>
 <% end %>
+
+<%= link_to 'Back', figures_path %>

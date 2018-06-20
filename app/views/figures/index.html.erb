@@ -1,0 +1,19 @@
+<h1>Listing figures</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Date Created</th>
+    <th>Description</th>
+    <th></th>
+  </tr>
+
+  <% @figures.each do |figure| %>
+    <tr>
+      <td><%= figure.title %></td>
+      <td><%= figure.date %></td>
+      <td><%= figure.description %></td>
+      <td><%= link_to 'Show', figure_path(figure) %></td>
+    </tr>
+  <% end %>
+</table>
