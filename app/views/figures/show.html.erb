@@ -2,6 +2,14 @@
   <strong>Title:</strong>
   <%= @figure.title %>
 </p>
+<% if @figure.photo.attached? %>
+<!-- @figure.photo.present? will always return true, use attached? to check presence -->
+  <p>
+    <strong>Image:</strong>
+    <br>
+    <%= image_tag @figure.photo %>
+  </p>
+<% end %>
 <p>
   <strong>Date:</strong>
   <%= @figure.date %>

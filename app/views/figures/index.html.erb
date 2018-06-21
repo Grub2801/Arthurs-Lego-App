@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Title</th>
+    <th>Image</th>
     <th>Date Created</th>
     <th>Description</th>
     <th></th>
@@ -11,6 +12,9 @@
   <% @figures.each do |figure| %>
     <tr>
       <td><%= figure.title %></td>
+      <% if figure.photo.attached? %>
+        <td><%= image_tag figure.photo %></td>
+      <% end %>
       <td><%= figure.date %></td>
       <td><%= figure.description %></td>
       <td><%= link_to 'Show', figure_path(figure) %></td>

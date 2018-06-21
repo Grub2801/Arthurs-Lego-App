@@ -8,21 +8,23 @@ class FiguresController < ApplicationController
   end
 
   def new
+    @figure = Figure.new
   end
 
   def create
     # render plain: params[:figure].inspect
 
-    @figure = Figure.new(article_params)
+    @figure = Figure.new(figure_params)
 
-    @figure.save
-    redirect_to @figure
-
+    if @figure.save
+      redirect_to @figure
+    else
+      render 'new'
+    end
   end
 
   private
-    def article_params
-      params.require(:figure).permit(:title, :date, :description)
+    def figure_params
+      params.require(:figure).permit(:title, :date, :description, :photo)
     end
-
 end
