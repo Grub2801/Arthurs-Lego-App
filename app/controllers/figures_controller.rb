@@ -1,4 +1,5 @@
 class FiguresController < ApplicationController
+
   def index
     @figures = Figure.all
   end
@@ -11,6 +12,10 @@ class FiguresController < ApplicationController
     @figure = Figure.new
   end
 
+  def edit
+     @figure = Figure.find params[:id]
+  end
+
   def create
     # render plain: params[:figure].inspect
 
@@ -21,6 +26,23 @@ class FiguresController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def update
+    @figure = Figure.find(params[:id])
+
+    if @figure.update(figure_params)
+      redirect_to @figure
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @figure = Figure.find(params[:id])
+    @figure.destroy
+
+    redirect_to figures_path
   end
 
   private
